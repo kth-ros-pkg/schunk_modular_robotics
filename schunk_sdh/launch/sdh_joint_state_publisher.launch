@@ -1,0 +1,10 @@
+<launch>
+	<rosparam command="load" file="$(find schunk_sdh)/config/joint_state_publisher_config.yaml" />
+	<node pkg="joint_state_publisher" type="joint_state_publisher" name="sdh_joint_state_publisher">
+		<param name="robot_description" command="$(find xacro)/xacro.py '$(find schunk_description)/urdf/sdh/sdh.single.urdf.xacro'"/>
+		<remap from="joint_states" to="/sdh_controller/joint_group_position_controller/command" />
+	<!-- <param name="joint_states" value="sdh_controller/joint_group_position_controller/command" /> -->
+	<!-- <param name="use_gui" value="true" /> -->
+	<!-- <param name="source_list" value="[/sdh_controller/joint_states]" /> -->
+	</node>
+</launch>

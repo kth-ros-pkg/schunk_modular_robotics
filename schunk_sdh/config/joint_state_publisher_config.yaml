@@ -1,0 +1,2 @@
+use_gui: true
+source_list: [/sdh_controller/joint_states2,]

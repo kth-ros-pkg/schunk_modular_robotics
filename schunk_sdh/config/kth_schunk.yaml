@@ -1,0 +1,16 @@
+joint_state_topic: /sdh/joint_states
+tactile_sensor_topic: /sdh/tactile_sensors
+joint_command_topic: /sdh/joint_commands
+sdh_device_name: /dev/ttyUSB%d
+sdh_port: 0
+dsa_device_name: /dev/ttyUSB%d
+dsa_port: 1
+joint_names:
+        - sdh_knuckle_joint
+        - sdh_thumb_2_joint
+        - sdh_thumb_3_joint
+        - sdh_finger_12_joint
+        - sdh_finger_13_joint
+        - sdh_finger_22_joint
+        - shd_finger_23_joint
+

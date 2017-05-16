@@ -1,0 +1,6 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find schunk_description)/urdf/sdh/sdh.urdf.xacro" />
+  <xacro:schunk_sdh parent="world" name="sdh">
+  	<pose xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:schunk_sdh>
+</robot>

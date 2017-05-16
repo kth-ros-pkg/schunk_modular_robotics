@@ -52,8 +52,14 @@ set_target_properties(dsa_only PROPERTIES COMPILE_FLAGS "-DOSNAME_LINUX")
 add_dependencies(dsa_only ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(dsa_only SDHLibrary-CPP ${catkin_LIBRARIES})
 
+set(CMAKE_CXX_FLAGS "-std=c++11")
+add_executable(kth_sdh ros/src/kth_sdh.cpp ros/src/SDHROSBridge.cpp)
+set_target_properties(kth_sdh PROPERTIES COMPILE_FLAGS "-DOSNAME_LINUX")
+add_dependencies(kth_sdh ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(kth_sdh SDHLibrary-CPP ${catkin_LIBRARIES})
+
 ### INSTALL ###
-install(TARGETS ${PROJECT_NAME} sdh_only dsa_only
+install(TARGETS ${PROJECT_NAME} sdh_only dsa_only kth_sdh
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -62,4 +68,4 @@ install(TARGETS ${PROJECT_NAME} sdh_only dsa_only
 install(FILES ${PROJECT_SOURCE_DIR}/common/lib/${MYARCH}/libSDHLibrary-CPP.so DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
 
 ### LINT ###
-roslint_cpp(ros/src/sdh.cpp ros/src/dsa_only.cpp ros/src/sdh_only.cpp)
+roslint_cpp(ros/src/sdh.cpp ros/src/dsa_only.cpp ros/src/sdh_only.cpp ros/src/kth_sdh.cpp)

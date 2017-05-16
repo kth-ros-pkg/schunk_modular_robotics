@@ -1,0 +1,7 @@
+<launch>
+	<!-- startup sdh -->
+	<node name="sdh_controller" pkg="schunk_sdh" type="kth_sdh" cwd="node" respawn="true" output="screen" >
+		<rosparam command="load" file="$(find schunk_sdh)/config/kth_schunk.yaml"/>
+	</node>
+
+</launch>
